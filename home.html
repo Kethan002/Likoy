@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Likoy - Custom T-Shirt Designs</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 1);
+            padding: 1rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-family: 'Arial', sans-serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: #ff0066;
+            text-decoration: none;
+        }
+
+        nav {
+            margin-left: auto;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff0066;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #ff0066;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(rgba(43, 43, 43, 0.7), rgba(54, 54, 54, 0.7)),
+                        url('images/bg.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            color: #ffffff;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 2rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <a href="home.html" class="logo">Likoy</a>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="service.html">SERVICES</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Custom T-Shirt Designs And Printing</h1>
+            <p>Quality T-Shirt Printing Service</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-flex">
+                <div class="image-grid">
+                    <img src="images/superhero-tshirt.jpg" alt="Superhero T-shirt" class="grid-img">
+                    <img src="images/text-tshirt.jpg" alt="Text Design T-shirt" class="grid-img">
+                    <img src="images/hanging-tshirt.jpg" alt="Hanging T-shirt" class="grid-img large-img">
+                </div>
+                
+                <div class="about-content">
+                    <h2 class="about-title">ABOUT US</h2>
+                    <h3 class="about-heading" style="font-size: 60px;">Quality T-Shirt Printing Service</h3>
+                    <p class="about-text">We specialize in creating unique t-shirt designs and bringing them to life with our top-notch printing technology.</p>
+                    
+                    <div class="service-icons">
+                        <div class="icon">
+                            <img src="images/delivery-icon.svg" alt="Delivery Service">
+                        </div>
+                        <div class="icon">
+                            <img src="images/designer-icon.svg" alt="Design Service">
+                        </div>
+                        <div class="icon">
+                            <img src="images/network-icon.svg" alt="Network">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Endless Possibilities Section -->
+    <section id="possibilities" class="possibilities">
+        <div class="container">
+            <div class="possibilities-grid">
+                <div class="content-left">
+                    <h2>Endless Possibilities</h2>
+                    <p>We specialize in creating unique t-shirt designs and bringing them to life with our top-notch printing technology.</p>
+                    
+                    <ul class="features">
+                        <li>Custom Design Consultation</li>
+                        <li>Premium Printing Materials</li>
+                        <li>Bulk Order Discounts</li>
+                    </ul>
+                </div>
+                
+                <div class="images-right">
+                    <div class="image-layout">
+                        <img src="images/tshirt-design2.jpg" alt="T-shirt Design Example 1" class="main-image">
+                        <img src="images/tshirt-design1.jpg" alt="T-shirt Design Example 2" class="overlay-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <style>
+            .possibilities {
+                padding: 80px 0;
+                background: #ffffff;
+            }
+    
+            .possibilities .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+    
+            .possibilities-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                align-items: center;
+            }
+    
+            .content-left {
+                padding-right: 2rem;
+            }
+    
+            .content-left h2 {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+                text-align: left;
+            }
+    
+            .content-left p {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+                color: #666;
+            }
+    
+            .features {
+                list-style: none;
+                padding: 0;
+            }
+    
+            .features li {
+                position: relative;
+                padding-left: 1.5rem;
+                margin-bottom: 1rem;
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+    
+            .features li::before {
+                content: '►';
+                position: absolute;
+                left: 0;
+                color: #ff0066;
+            }
+    
+            .images-right {
+                position: relative;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+    
+            .image-layout {
+                position: relative;
+                width: 100%;
+            }
+    
+            .main-image {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                display: block;
+                max-height: 400px;
+                object-fit: cover;
+            }
+    
+            .overlay-image {
+                position: absolute;
+                bottom: -15%;
+                right: -15%;
+                width: 50%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                max-height: 200px;
+                object-fit: cover;
+            }
+    
+            @media (max-width: 768px) {
+                .possibilities-grid {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+    
+                .content-left {
+                    padding-right: 0;
+                }
+    
+                .images-right {
+                    max-width: 100%;
+                }
+    
+                .overlay-image {
+                    position: relative;
+                    bottom: 0;
+                    right: 0;
+                    width: 100%;
+                    margin-top: 1rem;
+                    max-height: none;
+                }
+            }
+        </style>
+    </section>
+    
+    
+
+    <section id="business_info" class="business_info">
+        <div class="container">
+            <div class="business_info-grid">
+                
+                <div>
+                    <h3>Company Overview</h3>
+                    <p>With a commitment to excellence and customer satisfaction, we strive to deliver premium quality and innovative solutions tailored to meet your needs.</p>
+                </div>
+                <div>
+                    <h3>Get in Touch</h3>
+                    <p>Email: likoyfasions@gmail.com</p>
+                    <p>Phone: +91 8500219400</p>
+                </div>
+                <div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 10:00 AM - 4:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Your Likoy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add active class to nav links based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

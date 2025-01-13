@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Business Name</title>
+    <style>
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/about_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .about-hero h2 {
+            font-size: 48px;
+            margin-left: 10%;
+            font-weight: 400;
+        }
+
+        .vision-section {
+            display: flex;
+            align-items: center;
+            margin: 50px 10%;
+            gap: 60px;
+        }
+
+        .vision-images {
+            flex: 1;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .vision-content {
+            flex: 1;
+        }
+
+        .vision-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .flower-image {
+            width: 70%;
+            border-radius: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .worker-image {
+            width: 50%;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+        }
+
+        .team-section {
+            margin: 80px 10%;
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .team-header {
+            flex: 1;
+        }
+
+        .team-header h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .team-header p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .our-features {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .team-grid-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .team-grid-bottom {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 66%;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            aspect-ratio: 1;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #e91e63;
+            width: 120px;
+            height: 120px;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pink-border {
+            border: 2px solid #e91e63;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="home.html" class="logo">Likoy</a>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="service.html">SERVICES</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <h2>About Us</h2>
+    </section>
+
+    <section class="vision-section">
+        <div class="vision-images">
+            <img src="images/flower-image.jpg" alt="Decorative flower" class="flower-image pink-border">
+            <img src="images/worker-image.jpg" alt="Worker at desk" class="worker-image pink-border">
+        </div>
+        <div class="vision-content">
+            <h2>Vision</h2>
+            <p>At Likoy, we are passionate about helping individuals and businesses express themselves through custom t-shirt designs.</p>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="team-header">
+            <h2>Professional Team</h2>
+            <p>With a dedicated team and state-of-the-art printing equipment, we are committed to delivering excellence in every aspect of our work.</p>
+            
+        </div>
+        
+        <div class="team-grid-container">
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/team-member1.jpg" alt="Team member">
+                </div>
+                <div class="team-member">
+                    <img src="images/team-member2.jpg" alt="Team member">
+                </div>
+                <div class="team-member">
+                    <img src="images/team-member3.jpg" alt="Team member">
+                </div>
+            </div>
+            
+            <div class="team-grid-bottom">
+                <div class="team-member">
+                    <img src="images/team-member4.jpg" alt="Team member">
+                </div>
+                <div class="team-member">
+                    <img src="images/team-member5.jpg" alt="Team member">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <<section id="business_info" class="business_info">
+        <div class="container">
+            <div class="business_info-grid">
+                
+                <div>
+                    <h3>Company Overview</h3>
+                    <p>With a commitment to excellence and customer satisfaction, we strive to deliver premium quality and innovative solutions tailored to meet your needs.</p>
+                </div>
+                <div>
+                    <h3>Get in Touch</h3>
+                    <p>Email: likoyfasions@gmail.com</p>
+                    <p>Phone: +91 8500219400</p>
+                </div>
+                <div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 10:00 AM - 4:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 Likoy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add active class to nav links based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>gallery</title>
+    <style>
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/gallery_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .about-hero h2 {
+            font-size: 48px;
+            margin-left: 10%;
+            font-weight: 400;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-title {
+            color: white;
+            font-size: 28px;
+            text-align: center;
+            font-weight: 400;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item:hover .gallery-title {
+            transform: translateY(-20px);
+        }
+
+        /* Header Styles */
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="home.html" class="logo">Likoy</a>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="service.html">SERVICES</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="about-hero">
+        <h2>Gallery</h2>
+    </section>
+
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="images/consultation.jpg" alt="Custom Design Consultation">
+            <div class="gallery-overlay">
+                <h3 class="gallery-title">Custom Design Consultation</h3>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="images/materials.jpg" alt="Premium Printing Materials">
+            <div class="gallery-overlay">
+                <h3 class="gallery-title">Premium Printing Materials</h3>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="images/bulk-order.jpg" alt="Bulk Order Discounts">
+            <div class="gallery-overlay">
+                <h3 class="gallery-title">Bulk Order Discounts</h3>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="images/turnaround.jpg" alt="Fast Turnaround Times">
+            <div class="gallery-overlay">
+                <h3 class="gallery-title">Fast Turnaround Times</h3>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="images/eco-friendly.jpg" alt="Eco-Friendly Practices">
+            <div class="gallery-overlay">
+                <h3 class="gallery-title">Eco-Friendly Practices</h3>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="images/unique-design.jpg" alt="Unique Design Options">
+            <div class="gallery-overlay">
+                <h3 class="gallery-title">Unique Design Options</h3>
+            </div>
+        </div>
+    </div>
+
+    <section id="business_info" class="business_info">
+        <div class="container">
+            <div class="business_info-grid">
+                
+                <div>
+                    <h3>Company Overview</h3>
+                    <p>With a commitment to excellence and customer satisfaction, we strive to deliver premium quality and innovative solutions tailored to meet your needs.</p>
+                </div>
+                <div>
+                    <h3>Get in Touch</h3>
+                    <p>Email: likoyfasions@gmail.com</p>
+                    <p>Phone: +91 8500219400</p>
+                </div>
+                <div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 10:00 AM - 4:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Your Likoy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add active class to nav links based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
