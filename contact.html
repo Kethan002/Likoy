@@ -86,6 +86,10 @@
 <body>
     <header>
         <a href="index.html" class="logo">Likoy</a>
+
+        <div class="menu-btn">☰</div>
+
+        
         <nav>
             <ul>
                 <li><a href="index.html">HOME</a></li>
@@ -130,6 +134,26 @@
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
     <script>
+
+
+
+        const menuBtn = document.querySelector('.menu-btn');
+        const nav = document.querySelector('nav');
+
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuBtn.textContent = nav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                menuBtn.textContent = '☰';
+            });
+        });
+
+
         // Initialize EmailJS with your Public Key (User ID)
         emailjs.init("wY_2Wq2rxkKHiMNze"); // Your actual Public Key
 

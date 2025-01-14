@@ -87,6 +87,9 @@
 <body>
     <header>
         <a href="index.html" class="logo">Likoy</a>
+
+        <div class="menu-btn">☰</div>
+        
         <nav>
             <ul>
                 <li><a href="index.html">HOME</a></li>
@@ -173,6 +176,24 @@
     </footer>
 
     <script>
+
+        const menuBtn = document.querySelector('.menu-btn');
+        const nav = document.querySelector('nav');
+
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuBtn.textContent = nav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                menuBtn.textContent = '☰';
+            });
+        });
+
+
         // Add active class to nav links based on scroll position
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('nav a');

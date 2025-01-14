@@ -469,3 +469,69 @@ header {
     object-fit: cover;
     border-radius: 8px;
 }
+
+
+@media (max-width: 768px) {
+    nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(255, 255, 255, 0.95);
+        transition: 0.3s;
+    }
+
+    nav.active {
+        left: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        gap: 2rem;
+    }
+
+    /* Add hamburger menu */
+    .menu-btn {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    header {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+        padding: 0 15px;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .business_info-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+        gap: 1.5rem;
+    }
+}
