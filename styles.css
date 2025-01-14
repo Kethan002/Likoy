@@ -535,3 +535,17 @@ header {
         gap: 1.5rem;
     }
 }
+
+/* First, hide the menu button by default (for desktop/laptop) */
+.menu-btn {
+    display: none;  /* This hides it on laptop/desktop */
+}
+
+/* Then only show it on mobile screens */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
