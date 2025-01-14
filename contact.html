@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="styles.css">
     <title>Contact Us - Likoy</title>
     <style>
@@ -108,22 +107,73 @@
             <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
             <label for="email">E - mail:</label>
-            <input type="email" id="email" name="email" placeholder="likoyfashions@gmail.com" required>
-        
+            <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+
             <label for="hno">House Number:</label>
             <input type="text" id="hno" name="hno" placeholder="Enter your house number" required>
-        
+
             <label for="city">City:</label>
             <input type="text" id="city" name="city" placeholder="Enter your city" required>
-        
+
             <label for="state">State:</label>
             <input type="text" id="state" name="state" placeholder="Enter your state" required>
-        
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" name="mobile" placeholder="Enter your 10-digit mobile number" required>
+
             <label for="comments">Comments/Message:</label>
             <textarea id="comments" name="comments" placeholder="Enter your comments or message" required></textarea>
-        
+
             <button type="submit">Submit</button>
         </form>
+        
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission behavior
+        
+                const email = document.getElementById('email').value.trim();
+                const mobile = document.getElementById('mobile').value.trim();
+        
+                let isValid = true;
+        
+                // Validate email
+                const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+                if (!emailPattern.test(email)) {
+                    alert('Please enter a valid Gmail address ending with @gmail.com.');
+                    isValid = false;
+                }
+        
+                // Validate mobile number
+                const mobilePattern = /^[0-9]{10}$/;
+                if (!mobilePattern.test(mobile)) {
+                    alert('Please enter a valid 10-digit mobile number.');
+                    isValid = false;
+                }
+        
+                // Only proceed if validation passes
+                // Initialize EmailJS with your Public Key (User ID)
+                emailjs.init("wY_2Wq2rxkKHiMNze");
+        
+                if (isValid) {
+                    
+                    const serviceID = 'service_o9da76k';
+                    const templateID = 'template_ohjtfqe';
+        
+                    // Send email using EmailJS
+                    emailjs.sendForm(serviceID, templateID, this)
+                        .then(() => {
+                            alert('Thanks for contacting us! We will get in touch within 48 hours.');
+                            // Redirect to home page after the alert is dismissed
+                            window.location.href = 'index.html';
+                        })
+                        .catch((err) => {
+                            console.error('Failed to send the message:', err);
+                            alert('Failed to send the message. Please try again.');
+                        });
+                }
+            });
+        </script>
+        
     </div>
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -145,25 +195,8 @@
             });
         });
 
-        // Initialize EmailJS with your Public Key (User ID)
-        emailjs.init("wY_2Wq2rxkKHiMNze");
+        
 
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const serviceID = 'service_o9da76k';
-            const templateID = 'template_ohjtfqe';
-
-            emailjs.sendForm(serviceID, templateID, this)
-                .then(() => {
-                    alert('Thanks for contacting us! We will get in touch within 48 hours.');
-                    // Redirect to home page after the alert is dismissed
-                    window.location.href = 'index.html';
-                }, (err) => {
-                    console.error('Failed to send the message:', err);
-                    alert('Failed to send the message. Please try again.');
-                });
-        });
     </script>
 
     <section id="business_info" class="business_info">
