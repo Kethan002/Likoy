@@ -6,6 +6,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Contact Us - Likoy</title>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+
     <style>
         .about-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/contact_bg.jpg');
@@ -126,6 +129,68 @@
 
             <button type="submit">Submit</button>
         </form>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const emailjsLoaded = setInterval(function() {
+                    if (typeof emailjs !== 'undefined') {
+                        clearInterval(emailjsLoaded);
+                        emailjs.init("wY_2Wq2rxkKHiMNze");
+                        
+                        document.getElementById('contactForm').addEventListener('submit', async function(event) {
+                            event.preventDefault();
+
+                            const email = document.getElementById('email').value.trim();
+                            const mobile = document.getElementById('mobile').value.trim();
+                            const name = document.getElementById('name').value.trim();
+                            const hno = document.getElementById('hno').value.trim();
+                            const city = document.getElementById('city').value.trim();
+                            const state = document.getElementById('state').value.trim();
+                            const comments = document.getElementById('comments').value.trim();
+
+                            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+                            if (!emailPattern.test(email)) {
+                                alert('Please enter a valid Gmail address ending with @gmail.com.');
+                                return;
+                            }
+
+                            const mobilePattern = /^[0-9]{10}$/;
+                            if (!mobilePattern.test(mobile)) {
+                                alert('Please enter a valid 10-digit mobile number.');
+                                return;
+                            }
+
+                            try {
+                                // Send notification to admin
+                                await emailjs.send('service_o9da76k', 'template_ohjtfqe', {
+                                    name: name,
+                                    email: email,
+                                    hno: hno,
+                                    city: city,
+                                    state: state,
+                                    comments: comments,
+                                    mobile: mobile
+                                });
+
+                                // Send confirmation to user
+                                await emailjs.send('service_o9da76k', 'template_yc3v80f', {
+                                    user_name: name,
+                                    user_email: email
+                                });
+
+                                alert('Thanks for contacting us!');
+                                window.location.href = 'index.html';
+                            } catch (error) {
+                                console.error('Error sending email:', error);
+                                alert('Failed to send your message. Please try again.');
+                            }
+                        });
+                    }
+                }, 100);
+            });
+        </script>
+    
+        <!--
         
         <script>
             document.getElementById('contactForm').addEventListener('submit', function (event) {
@@ -133,6 +198,7 @@
         
                 const email = document.getElementById('email').value.trim();
                 const mobile = document.getElementById('mobile').value.trim();
+                const name = document.getElementById('name').value.trim();
         
                 let isValid = true;
         
@@ -150,30 +216,40 @@
                     isValid = false;
                 }
         
-                // Only proceed if validation passes
-                // Initialize EmailJS with your Public Key (User ID)
-                emailjs.init("wY_2Wq2rxkKHiMNze");
-        
                 if (isValid) {
-                    
-                    const serviceID = 'service_o9da76k';
-                    const templateID = 'template_ohjtfqe';
+                    // Initialize EmailJS with your Public Key (User ID)
+                    emailjs.init("wY_2Wq2rxkKHiMNze"); // Replace with your EmailJS public key
         
-                    // Send email using EmailJS
-                    emailjs.sendForm(serviceID, templateID, this)
-                        .then(() => {
-                            alert('Thanks for contacting us! We will get in touch within 48 hours.');
-                            // Redirect to home page after the alert is dismissed
+                    const serviceID = 'service_o9da76k';
+                    const templateID_admin = 'template_ohjtfqe';
+                    const templateID_user = 'template_yc3v80f';
+        
+                    // Send email to admin
+                    emailjs.send(serviceID, templateID_admin, {
+                        user_name: name,
+                        user_email: email,
+                        user_message: document.getElementById('comments').value,
+                        user_mobile: mobile,
+                    }).then(() => {
+                        // Send confirmation email to user
+                        emailjs.send(serviceID, templateID_user, {
+                            user_name: name,
+                            user_email: email,
+                        }).then(() => {
+                            alert('Thanks for contacting us!');
                             window.location.href = 'index.html';
-                        })
-                        .catch((err) => {
-                            console.error('Failed to send the message:', err);
-                            alert('Failed to send the message. Please try again.');
+                        }).catch((err) => {
+                            console.error('Failed to send confirmation email to user:', err);
+                            alert('Failed to send confirmation email. Please try again.');
                         });
+                    }).catch((err) => {
+                        console.error('Failed to send message to admin:', err);
+                        alert('Failed to send your message. Please try again.');
+                    });
                 }
             });
         </script>
-        
+    -->
     </div>
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
