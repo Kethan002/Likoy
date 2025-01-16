@@ -17,9 +17,9 @@
             font-family: Arial, sans-serif;
             min-height: 100vh;
             position: relative;
+            overflow-x: hidden;
         }
 
-        /* Add a container for background handling */
         .background-container {
             position: fixed;
             top: 0;
@@ -32,8 +32,58 @@
             background-repeat: no-repeat;
             z-index: -1;
         }
-        
 
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            float: left;
+        }
+
+        .menu-btn {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            float: right;
+        }
+
+        nav {
+            float: right;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ddd;
+        }
+
+        /* Content Styles */
         .content {
             display: flex;
             justify-content: center;
@@ -41,6 +91,7 @@
             min-height: 100vh;
             position: relative;
             background: transparent;
+            padding: 1rem;
         }
 
         .letters {
@@ -49,31 +100,33 @@
             justify-content: center;
             align-items: center;
             flex-wrap: nowrap;
+            height: 100px;
         }
 
         .letter {
-            font-size: 80px;
+            font-size: clamp(40px, 8vw, 80px);
             font-weight: bold;
             position: absolute;
             opacity: 0;
             animation: moveIn 2s forwards;
-            color:aliceblue;
+            color: aliceblue;
         }
 
-         /* Adjusted letter positions for even spacing and gap between "COMING" and "SOON" */
-         .letter:nth-child(1) { left: -200px; animation: moveInFromLeft 2s forwards; animation-delay: 0s; }
-         .letter:nth-child(2) { left: -140px; animation: moveInFromTopLeft 2s forwards; animation-delay: 0.2s; }
-         .letter:nth-child(3) { left: -80px; animation: moveInFromTopRight 2s forwards; animation-delay: 0.4s; }
-         .letter:nth-child(4) { left: -17px; animation: moveInFromBottomLeft 2s forwards; animation-delay: 0.6s; }
-         .letter:nth-child(5) { left: 0px; animation: moveInFromBottomRight 2s forwards; animation-delay: 0.8s; }
-         .letter:nth-child(6) { left: 53px; animation: moveInFromTopLeft 2s forwards; animation-delay: 1s; }
-         .letter:nth-child(7) { left: 130px; animation: moveInFromTopRight 2s forwards; animation-delay: 1.2s; }
-         .letter:nth-child(8) { left: 180px; animation: moveInFromBottomLeft 2s forwards; animation-delay: 1.4s; }
-         .letter:nth-child(9) { left: 240px; animation: moveInFromBottomRight 2s forwards; animation-delay: 1.6s; } /* Adjusted position for SOON */
-         .letter:nth-child(10) { left: 300px; animation: moveInFromTopLeft 2s forwards; animation-delay: 1.8s; }
-         .letter:nth-child(11) { left: 350px; animation: moveInFromTopRight 2s forwards; animation-delay: 2s; }
-         .letter:nth-child(12) { left: 410px; animation: moveInFromBottomLeft 2s forwards; animation-delay: 2.2s; }
- 
+        /* Responsive letter positioning using viewport units */
+        .letter:nth-child(1) { left: -20vw; }
+        .letter:nth-child(2) { left: -14vw; }
+        .letter:nth-child(3) { left: -8vw; }
+        .letter:nth-child(4) { left: -1.7vw; }
+        .letter:nth-child(5) { left: 0; }
+        .letter:nth-child(6) { left: 5.3vw; }
+        .letter:nth-child(7) { left: 13vw; }
+        .letter:nth-child(8) { left: 18vw; }
+        .letter:nth-child(9) { left: 24vw; }
+        .letter:nth-child(10) { left: 30vw; }
+        .letter:nth-child(11) { left: 35vw; }
+        .letter:nth-child(12) { left: 41vw; }
+
+        /* Animation keyframes remain the same */
         @keyframes moveIn {
             0% {
                 opacity: 0;
@@ -88,59 +141,30 @@
             }
         }
 
+        /* Retain other animations */
         @keyframes moveInFromLeft {
-            0% {
-                transform: translate(-100vw, 0);
-                opacity: 0;
-            }
-            100% {
-                transform: translate(0, 0);
-                opacity: 1;
-            }
+            0% { transform: translate(-100vw, 0); opacity: 0; }
+            100% { transform: translate(0, 0); opacity: 1; }
         }
 
         @keyframes moveInFromTopLeft {
-            0% {
-                transform: translate(-100vw, -100vh);
-                opacity: 0;
-            }
-            100% {
-                transform: translate(0, 0);
-                opacity: 1;
-            }
+            0% { transform: translate(-100vw, -100vh); opacity: 0; }
+            100% { transform: translate(0, 0); opacity: 1; }
         }
 
         @keyframes moveInFromTopRight {
-            0% {
-                transform: translate(100vw, -100vh);
-                opacity: 0;
-            }
-            100% {
-                transform: translate(0, 0);
-                opacity: 1;
-            }
+            0% { transform: translate(100vw, -100vh); opacity: 0; }
+            100% { transform: translate(0, 0); opacity: 1; }
         }
 
         @keyframes moveInFromBottomLeft {
-            0% {
-                transform: translate(-100vw, 100vh);
-                opacity: 0;
-            }
-            100% {
-                transform: translate(0, 0);
-                opacity: 1;
-            }
+            0% { transform: translate(-100vw, 100vh); opacity: 0; }
+            100% { transform: translate(0, 0); opacity: 1; }
         }
 
         @keyframes moveInFromBottomRight {
-            0% {
-                transform: translate(100vw, 100vh);
-                opacity: 0;
-            }
-            100% {
-                transform: translate(0, 0);
-                opacity: 1;
-            }
+            0% { transform: translate(100vw, 100vh); opacity: 0; }
+            100% { transform: translate(0, 0); opacity: 1; }
         }
 
         footer {
@@ -149,6 +173,58 @@
             text-align: center;
             padding: 1rem;
             width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        /* Mobile Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                background: rgba(0, 0, 0, 0.9);
+                width: 100%;
+                height: calc(100vh - 60px);
+                transition: 0.3s;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+            }
+
+            nav ul li a {
+                font-size: 1.2rem;
+            }
+
+            .letters {
+                transform: scale(0.8);
+            }
+        }
+
+        /* Small screen adjustments */
+        @media screen and (max-width: 480px) {
+            .letters {
+                transform: scale(0.6);
+            }
+
+            .letter {
+                font-size: clamp(30px, 6vw, 60px);
+            }
         }
     </style>
 </head>
