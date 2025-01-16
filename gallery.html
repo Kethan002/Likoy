@@ -8,7 +8,7 @@
     <title>gallery</title>
     <style>
         .about-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/about_bg.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/gallery_bg.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -23,154 +23,121 @@
             margin-left: 10%;
             font-weight: 400;
         }
-
-        .vision-section {
-            display: flex;
-            align-items: center;
-            margin: 50px 10%;
-            gap: 60px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .vision-images {
-            flex: 1;
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
             position: relative;
-            min-height: 300px;
-        }
-        
-        .vision-content {
-            flex: 1;
-        }
-        
-        .flower-image {
-            width: 70%;
-            border-radius: 20px;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-        
-        .worker-image {
-            width: 50%;
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            border-radius: 20px;
-        }
-        
-        /* Add these media queries for better responsive behavior */
-        @media screen and (max-width: 768px) {
-            .vision-section {
-                flex-direction: column;
-                margin: 30px 5%;
-                gap: 30px;
-            }
-        
-            .vision-images {
-                width: 100%;
-                min-height: 400px;
-                margin-bottom: 20px;
-            }
-        
-            .flower-image {
-                width: 80%;
-                position: relative;
-                display: block;
-                margin-bottom: 20px;
-            }
-        
-            .worker-image {
-                width: 60%;
-                position: relative;
-                display: block;
-                margin-left: auto;
-            }
-        }
-        
-        @media screen and (max-width: 480px) {
-            .vision-images {
-                min-height: 300px;
-            }
-        
-            .flower-image {
-                width: 100%;
-            }
-        
-            .worker-image {
-                width: 80%;
-            }
-        }
-
-        .team-section {
-            margin: 80px 10%;
-            display: flex;
-            align-items: flex-start;
-            gap: 40px;
-        }
-
-        .team-header {
-            flex: 1;
-        }
-
-        .team-header h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        .team-header p {
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .our-features {
-            background-color: #e91e63;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
+            height: 400px;
+            overflow: hidden;
             cursor: pointer;
         }
 
-        .team-grid-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .team-grid-bottom {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            width: 66%;
-            margin: 0 auto;
-        }
-
-        .team-member {
-            aspect-ratio: 1;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid #e91e63;
-            width: 120px;
-            height: 120px;
-        }
-
-        .team-member img {
+        .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
         }
 
-        .pink-border {
-            border: 2px solid #e91e63;
-            border-radius: 20px;
+        .gallery-item:hover img {
+            transform: scale(1.1);
         }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-title {
+            color: white;
+            font-size: 28px;
+            text-align: center;
+            font-weight: 400;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item:hover .gallery-title {
+            transform: translateY(-20px);
+        }
+
+       /* Updated navigation button styles */
+       .gallery-nav {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .button-container {
+        display: flex;
+        border: 2px solid #333;
+        border-radius: 25px;
+        overflow: hidden;
+    }
+
+    .gallery-nav-btn {
+        padding: 15px 40px;
+        font-size: 18px;
+        background-color: white;
+        color: #333;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .gallery-nav-btn:first-child {
+        border-right: 2px solid #333;
+        background-color:deeppink  /* Green background for CD */
+    }
+
+    .gallery-nav-btn:last-child {
+        background-color:deeppink;  /* Blue background for OP */
+    }
+
+    .gallery-nav-btn:hover {
+        opacity: 0.9;
+    }
+        /* Existing gallery grid styles */
+        /* Rest of your existing gallery styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+
+
     </style>
 </head>
 <body>
