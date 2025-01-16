@@ -73,43 +73,84 @@
         }
 
         .vision-section {
-            display: flex;
-            align-items: center;
-            margin: 50px 10%;
-            gap: 60px;
-        }
+    display: flex;
+    align-items: center;
+    margin: 50px 10%;
+    gap: 60px;
+}
 
-        .vision-images {
-            flex: 1;
-            position: relative;
-            min-height: 300px;
-        }
+.vision-images {
+    flex: 1;
+    position: relative;
+    min-height: 300px;
+}
 
-        .vision-content {
-            flex: 1;
-        }
+.vision-content {
+    flex: 1;
+}
 
-        .vision-content h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
+.vision-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
 
-        .flower-image {
-            width: 70%;
-            border-radius: 20px;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
+.flower-image {
+    width: 70%;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 
-        .worker-image {
-            width: 50%;
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            border-radius: 20px;
-        }
+.worker-image {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+}
+
+/* Media queries that preserve the overlay effect */
+@media screen and (max-width: 768px) {
+    .vision-section {
+        flex-direction: column;
+        margin: 30px 5%;
+        gap: 30px;
+    }
+
+    .vision-images {
+        width: 100%;
+        min-height: 350px;
+        margin-bottom: 20px;
+    }
+
+    .vision-content {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .vision-images {
+        min-height: 250px;
+    }
+
+    .flower-image {
+        width: 75%;
+        top: 0;
+        left: 0;
+    }
+
+    .worker-image {
+        width: 55%;
+        bottom: 0;
+        right: 0;
+    }
+
+    .vision-content h2 {
+        font-size: 28px;
+    }
+}
 
         .team-section {
             margin: 80px 10%;
