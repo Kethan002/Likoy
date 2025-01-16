@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="styles.css">
     <title>gallery</title>
     <style>
@@ -81,7 +80,62 @@
             transform: translateY(-20px);
         }
 
-        /* Header Styles */
+       /* Updated navigation button styles */
+       .gallery-nav {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .button-container {
+        display: flex;
+        border: 2px solid #333;
+        border-radius: 25px;
+        overflow: hidden;
+    }
+
+    .gallery-nav-btn {
+        padding: 15px 40px;
+        font-size: 18px;
+        background-color: white;
+        color: #333;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .gallery-nav-btn:first-child {
+        border-right: 2px solid #333;
+        background-color:deeppink  /* Green background for CD */
+    }
+
+    .gallery-nav-btn:last-child {
+        background-color:deeppink;  /* Blue background for OP */
+    }
+
+    .gallery-nav-btn:hover {
+        opacity: 0.9;
+    }
+        /* Existing gallery grid styles */
+        /* Rest of your existing gallery styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
 
 
     </style>
@@ -99,12 +153,26 @@
                 <li><a href="service.html">SERVICES</a></li>
                 <li><a href="gallery.html">GALLERY</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
+                <!--
+                <li>
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                    </a>
+                </li>
+                -->
             </ul>
         </nav>
     </header>
     <section class="about-hero">
         <h2>Gallery</h2>
     </section>
+
+    <div class="gallery-nav">
+        <div class="button-container">
+            <a href="cooming_soon.html" class="gallery-nav-btn">Custum Design</a>
+            <a href="cooming_soon.html" class="gallery-nav-btn">Our Products</a>
+        </div>
+    </div>
 
     <div class="gallery-grid">
         <div class="gallery-item">
